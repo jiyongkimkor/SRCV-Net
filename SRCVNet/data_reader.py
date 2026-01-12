@@ -100,7 +100,7 @@ class BatchLoader(tf.keras.utils.Sequence):
             right_paths=self.all_right_paths[start_idx:end_idx],
             disp_paths=self.all_disp_paths[start_idx:end_idx]
         )
-        return [lefts, rights, dxs, dys], [d8s, d4s, ds]
+        return (lefts, rights, dxs, dys), (d8s, d4s, ds)
 
         if self.reshuffle and index == self.total_batches - 1:
             paths = list(zip(self.all_left_paths, self.all_right_paths, self.all_disp_paths))
